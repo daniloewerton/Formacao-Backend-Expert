@@ -1,2 +1,7 @@
-package models.exceptions;public class ResourceNotFoundException {
+package models.exceptions;
+
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(final String message) {
+        super(message);
+    }
 }
