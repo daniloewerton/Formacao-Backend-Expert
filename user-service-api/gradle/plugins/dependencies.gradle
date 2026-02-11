@@ -17,10 +17,10 @@ dependencies {
     implementation 'org.springframework.security:spring-security-crypto:6.4.3'
 
     // Starter para configuração do Spring Cloud Config
-//    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
 
     // Starter para configuração do Spring Cloud
-//    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
 
     // Starter para integração com o Eureka Discovery Client
 //    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
