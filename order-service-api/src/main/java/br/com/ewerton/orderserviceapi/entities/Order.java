@@ -25,7 +25,7 @@ public class Order implements Serializable {
     private Long id;
 
     @Column(nullable = false, length = 45)
-    private String requestId;
+    private String requesterId;
 
     @Column(nullable = false, length = 45)
     private String customerId;
