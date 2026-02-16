@@ -1,6 +1,7 @@
 package br.com.ewerton.orderserviceapi.controllers.impl;
 
 import br.com.ewerton.orderserviceapi.controllers.OrderController;
+import br.com.ewerton.orderserviceapi.mapper.OrderMapper;
 import br.com.ewerton.orderserviceapi.services.OrderService;
 import lombok.RequiredArgsConstructor;
 import models.requests.CreateOrderRequest;
@@ -15,6 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderControllerImpl implements OrderController {
 
     private final OrderService services;
+    private final OrderMapper mapper;
+
+    @Override
+    public ResponseEntity<OrderResponse> findById(Long id) {
+        return ResponseEntity.ok().body(
+                mapper.fromEntity(services.findById(id))
+        );
+    }
 
     @Override
     public ResponseEntity<Void> save(CreateOrderRequest request) {
