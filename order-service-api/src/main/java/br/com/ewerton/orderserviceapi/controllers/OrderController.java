@@ -17,6 +17,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Tag(name = "OrderController", description = "Controller responsible for orders operations")
 @RequestMapping("/api/orders")
 public interface OrderController {
@@ -38,6 +40,16 @@ public interface OrderController {
             @Parameter(description = "Order ID", example = "10", required = true)
             @PathVariable(name = "id") final Long id
     );
+
+    @Operation(summary = "Find all")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Orders found successfully",
+                    content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = OrderResponse[].class))),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error",
+                    content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = StandardError.class)))
+    })
+    @GetMapping
+    ResponseEntity<List<OrderResponse>> findAll();
 
     @Operation(summary = "Save new order")
     @ApiResponses(value = {

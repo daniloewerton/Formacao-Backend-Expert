@@ -12,6 +12,8 @@ import models.requests.UpdateOrderRequest;
 import models.responses.OrderResponse;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import static java.time.LocalDateTime.now;
 
 @Service
@@ -50,5 +52,10 @@ public class OrderServiceImpl implements OrderService {
     public void deleteById(Long id) {
         final Order entity = findById(id);
         repository.delete(entity);
+    }
+
+    @Override
+    public List<Order> findAll() {
+        return repository.findAll();
     }
 }

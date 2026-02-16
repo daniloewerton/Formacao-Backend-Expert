@@ -10,6 +10,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 
+import java.util.List;
+
 import static org.mapstruct.NullValueCheckStrategy.ALWAYS;
 import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
 
@@ -35,4 +37,6 @@ public interface OrderMapper {
     }
 
     OrderResponse fromEntity(Order save);
+
+    List<OrderResponse> fromEntities(List<Order> orders);
 }
